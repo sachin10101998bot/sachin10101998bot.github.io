@@ -14,9 +14,7 @@ const parseTransform = require('./src/transforms/parse-transform.js');
 
 // Import data files
 const site = require('./src/_data/site.json');
-module.exports = {
-  pathPrefix: "/eleventy-base-blog/"
-};
+
 
 module.exports = function(config) {
   // Filters
