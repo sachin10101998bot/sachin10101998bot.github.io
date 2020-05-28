@@ -21,7 +21,6 @@ module.exports = function(config) {
   config.addFilter('markdownFilter', markdownFilter);
   config.addFilter('w3DateFilter', w3DateFilter);
   
-
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
   config.addTransform('parse', parseTransform);
