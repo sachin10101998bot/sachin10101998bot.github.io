@@ -1,8 +1,10 @@
 /*
 Copyright 2020 OCAD University
-
 Licensed under the New BSD license. You may not use this file except in
 compliance with this License.
+
+See the AUTHORS.md file at the top-level directory of this distribution and at
+https://github.com/fluid-project/floeproject.org/master/AUTHORS.md.
 */
 
 /* eslint-env node */
@@ -14,11 +16,11 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // Project package file destination.
         pkg: grunt.file.readJSON("package.json"),
-        eslint: {
-            all: ["**/*.js"]
-        },
-        jsonlint: {
-            all: ["package.json", ".eslintrc.json"]
+        lintAll: {
+            sources: {
+                json: ["package.json", ".eslintrc.json","./src/_data/*.json"],
+                js: ["./src/transforms/*.js","./src/filters/*.js","./src/assets/js/*.js","./src/filters/*.js","./src/utils/*.js",".eleventy.js","Gruntfile.js"]
+            }
         },
         clean: {
             infusion: "src/lib/infusion"
@@ -99,7 +101,7 @@ module.exports = function (grunt) {
                         src: "**/*",
                         dest: "./src/lib/infusion/src/lib/normalize/css/"
                     },
-                    
+
                     {
                         expand: true,
                         cwd: "./node_modules/infusion/src/lib/open-dyslexic/fonts/",
@@ -122,15 +124,12 @@ module.exports = function (grunt) {
             }
         }
     });
-
     // Load the plugin(s):
-    grunt.loadNpmTasks("fluid-grunt-eslint");
-    grunt.loadNpmTasks("grunt-jsonlint");
+    grunt.loadNpmTasks("gpii-grunt-lint-all");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-copy");
-
     // Custom tasks:
     grunt.registerTask("default", ["clean", "installFrontEnd"]);
     grunt.registerTask("installFrontEnd", "Install front-end dependencies from the node_modules directory after 'npm install'", ["copy:frontEndDependencies"]);
-    grunt.registerTask("lint", ["eslint", "jsonlint"]);
+    grunt.registerTask("lint", "Perform all standard lint checks.", ["lint-all"]);
 };

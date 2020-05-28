@@ -1,23 +1,19 @@
 ---
-layout: layouts/default
-title: News | floe
-permalink: posts/index.html
+layout: layouts/post
+title: News | fluid
+permalink: newsindex.html
 ---
-<div id="content" class="floe-content">
-    <div class="flc-toc-tocContainer toc"> </div>
-    <h2> News </h2>
-    <div class="floe-news-archive">
+<div class="fluid-web">
+<section class="row">
+    <h2>News Archive</h2>
+    <div class="fluid-web-news-index fluid-web-list">
         <ul id="reverseneed">
             {%- for post in collections.post -%}
-              <li id="reverseneed"><a href="{{ '/' | url }}{{ post.data.permalink }}"><p> {{ post.data.title }}</p></a> 
-              <time class="floe-date" datetime="{{ post.data.date | w3DateFilter }}">{{ post.data.date | dateFilter }}</time>
-              </li>
-            {%- endfor -%}
+            <li id="reverseneed">
+                {{post.data.date}} - <a href="{{ '/' | url }}{{ post.data.permalink }}"> {{post.data.title}}</a>
+            </li> 
+            {% endfor -%} 
         </ul>
     </div>
+</section>
 </div>
-
-
-
-                            
-                 
