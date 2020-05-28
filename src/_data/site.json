@@ -1,10 +1,9 @@
 {
-  "name": "FLOE Project",
-  "shortDesc": "Flexible Learning for Open Education",
-  "url": "https://www.floeproject.org",
-  "authorEmail": "schopra@mt.iitr.ac.in",
-  "authorHandle": "@sachin10101998",
-  "authorName": "Sachin Chopra",
-  "maxPostsPerPage": 5,
-  "faviconPath": "assets/images/favicon.ico"
+    "name": "Fluid Project",
+    "shortDesc": "Fluid is an open, collaborative project to improve the user experience and inclusiveness of open source software.",
+    "url": "https://www.fluidproject.org",
+    "authorName": "OCAD University",
+    "authorWebsite": "https://www.ocadu.ca/",
+    "faviconPath": "{{ '/' | url }}files/images/favicon.ico",
+    "title": "Fluid Project - The Open Source Software community"
 }
